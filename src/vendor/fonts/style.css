@@ -1,0 +1,28 @@
+
+    @font-face {
+    font-family: 'SF UI Text Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Text Regular'), url('SFUIText-Regular.woff') format('woff');
+    }
+    
+    @font-face {
+    font-family: 'SF UI Text Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Text Light'), url('SFUIText-Light.woff') format('woff');
+    }
+    
+    @font-face {
+    font-family: 'SF UI Text Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Text Medium'), url('SFUIText-Medium.woff') format('woff');
+    }
+    
+    @font-face {
+    font-family: 'SF UI Text Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('SF UI Text Bold'), url('SFUIText-Bold.woff') format('woff');
+    }
