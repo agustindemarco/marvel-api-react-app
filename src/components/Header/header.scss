@@ -1,0 +1,37 @@
+nav {
+  padding-left: 16px;
+  padding-top: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .col-1 {
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 57px;
+    a {
+      display: block;
+      .logo {
+        width: 80px;
+      }
+    }
+  }
+
+  .col-2 {
+    padding: 5px;
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+  }
+  .col-3 {
+    a {
+      .icon-star-empty {
+        color: gray;
+        font-size: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.icon-search {
+  color: grey;
+  font-size: 1rem;
+}
+.searchChar {
+  font-size: 1rem;
+  padding: 5px;
+  width: 95%;
+  border: 0px;
+  &:focus-visible {
+    background-image: none;
+    border-radius: 30px;
+    outline: 0px solid gray;
+  }
+  &::placeholder {
+    color: rgb(179, 179, 179);
+  }
+}
