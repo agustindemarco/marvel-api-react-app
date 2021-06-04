@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { getCharactersByName } from "../../utils/fetch";
 import "./search.scss";
+import { getSearch } from '../../redux/cardDucks'
+import {useDispatch, useSelector} from 'react-redux'
 
 function Search() {
+
+  const dispatch = useDispatch()
+  const characters = useSelector(store => store.characters.array)
 
   const [searchTerm, setSearchTerm] = useState("");
   const firstUpdate = useRef(true);
@@ -17,13 +21,12 @@ function Search() {
     }
     const timeOutId = setTimeout(() => {
       if (searchTerm !== "") {
-        getCharactersByName(searchTerm)
-          .then((response) => console.log(response))
-          .catch((error) => console.log(error));
+        //array vacio
+        dispatch(getSearch(searchTerm))
       }
     }, WAIT_INTERVAL);
     return () => clearTimeout(timeOutId);
-  }, [searchTerm]);
+  }, [dispatch, searchTerm]);
 
   return (
     <>
