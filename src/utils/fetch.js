@@ -31,3 +31,13 @@ export function getCharacterById(id) {
     };
   });
 }
+
+export function getCharactersByName(name) {
+  return getData("characters", `nameStartsWith=${name}&${authParams}`).then(
+    (response) => {
+      return {
+        data: response.data,
+      };
+    }
+  );
+}

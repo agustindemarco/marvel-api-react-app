@@ -1,12 +1,20 @@
 import './App.css';
-import RandomCharacters from './containers/random-characters/random-characters';
+import ListCharacters from './containers/list-characters/list-characters';
+import Header from './components/Header/header';
+import Search from './components/Search/search';
+import { Provider } from 'react-redux'
+import generateStore from "./redux/store";
 
 
 function App() {
+  const store = generateStore()
   return (
-    <div className="App">
-      <RandomCharacters/>
-    </div>
+    <Provider store={store}>
+      <Header>
+        <Search/>
+      </Header>
+      <ListCharacters/>
+    </Provider>
   );
 }
 

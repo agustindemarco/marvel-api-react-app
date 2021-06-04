@@ -16,7 +16,7 @@ var Card = ({ name, img, id }) => {
           className="image"
           style={{ backgroundImage: `url(${img.path}.${img.extension})` }}
         >
-          <a href={`/character/${id}`} className="character">
+          <a href="/" className="character">
             {" "}
           </a>
           <p className="char-name">{name}</p>

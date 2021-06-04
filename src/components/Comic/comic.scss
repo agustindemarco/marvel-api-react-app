@@ -1,0 +1,36 @@
+.box {
+  padding: 10px;
+  height: 100px;
+  display: flex;
+  .comic {
+    max-height: 140px;
+    display: grid;
+    grid-template-columns: 0.7fr 1fr 0.5fr;
+    grid-template-rows: 0.1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "img title fav"
+      "img desc desc";
+    text-decoration: none;
+    color: black;
+    .comicImage {
+      grid-area: img;
+      width: 60%;
+    }
+    .title {
+      grid-area: title;
+    }
+    .favIcon {
+      margin: 5px;
+      text-align: left;
+      grid-area: fav;
+    }
+    .description {
+      max-height: 70px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      grid-area: desc;
+    }
+  }
+}
