@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./search.scss";
-import { getSearch } from '../../redux/cardDucks'
-import {useDispatch, useSelector} from 'react-redux'
+import { getSearch, loadingState, getCharacters } from '../../redux/card-ducks'
+import {useDispatch} from 'react-redux'
 
 function Search() {
 
   const dispatch = useDispatch()
-  const characters = useSelector(store => store.characters.array)
 
   const [searchTerm, setSearchTerm] = useState("");
   const firstUpdate = useRef(true);
@@ -21,8 +20,10 @@ function Search() {
     }
     const timeOutId = setTimeout(() => {
       if (searchTerm !== "") {
-        //array vacio
+        dispatch(loadingState())
         dispatch(getSearch(searchTerm))
+      } else {
+        dispatch(getCharacters())
       }
     }, WAIT_INTERVAL);
     return () => clearTimeout(timeOutId);
