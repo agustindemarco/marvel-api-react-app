@@ -1,24 +1,29 @@
 import React from "react";
 import Search from '../Search/search'
+import Favourite from "../Favourite/favourite"
 import "./header.scss";
+import { getCharacters } from '../../redux/card-ducks'
+import {useDispatch} from 'react-redux'
 
 function Header() {
+
+  const dispatch = useDispatch()
 
   return (
     <>
       <nav>
         <div className="col-1">
-          <a href="/">
+          <div className="block" onClick={() => {
+            dispatch(getCharacters())
+          }}>
             <img className="logo" src="Marvel_Logo.svg" alt="LOGO" />
-          </a>
+          </div>
         </div>
         <div className="col-2">
           <Search/>
         </div>
         <div className="col-3">
-          <a href="/fav">
-            <i className="icon-star-empty"></i>
-          </a>
+          <Favourite/>
         </div>
       </nav>
     </>

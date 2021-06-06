@@ -10,7 +10,7 @@ nav {
     align-items: center;
     width: 80px;
     height: 57px;
-    a {
+    .block {
       display: block;
       .logo {
         width: 80px;
@@ -26,12 +26,5 @@ nav {
     width: 100%;
     
   }
-  .col-3 {
-    a {
-      .icon-star-empty {
-        color: gray;
-        font-size: 20px;
-      }
-    }
-  }
 }
+

@@ -10,7 +10,7 @@ const propTypes = {
   img: PropTypes.object,
 };
 
-const Card = ({ name, img, id }) => {
+const Card = ({ name, img, character }) => {
 
   const dispatch = useDispatch()
 
@@ -24,7 +24,7 @@ const Card = ({ name, img, id }) => {
           <a href="/" className="character">
             {" "}
           </a>
-          <div onClick={() => dispatch(addFavourite(id))} className="favIcon">
+          <div onClick={() => {dispatch(addFavourite(character))}} className="favIcon">
             <i  className="icon-star-empty"></i>
           </div>
           <p className="char-name">{name}</p>

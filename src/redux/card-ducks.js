@@ -1,4 +1,5 @@
-import { getCharactersByName, getRandomCharacters } from "../utils/fetch"
+import { getCharactersByName, getRandomCharacters, getCharacterById } from "../utils/fetch"
+
 
 // constantes
 const dataInicial = {
@@ -9,8 +10,9 @@ const dataInicial = {
 // types
 const GET_CHARACTERS = 'GET_CHARACTERS'
 const GET_CHARACTERS_BY_NAME = 'GET_CHARACTERS_BY_NAME'
+const GET_CHARACTERS_BY_ID = 'GET_CHARACTERS_BY_ID'
+const GET_FAVOURITES = 'GET_FAVOURITES'
 const LOADING_STATE = 'LOADING_STATE'
-const ADD_FAVOURITE = 'ADD_FAVOURITE'
 
 
 // reducer
@@ -20,10 +22,12 @@ export default function cardReducer (state = dataInicial, action) {
       return {...state, array: action.payload}
     case GET_CHARACTERS_BY_NAME:
       return {...state, array: action.payload}
+    case GET_CHARACTERS_BY_ID:
+      return {...state, array: action.payload}
+    case GET_FAVOURITES:
+      return {...state, array: action.payload}
     case LOADING_STATE:
       return {...state, array: action.payload}
-    case ADD_FAVOURITE:
-      return {...state, favourite: action.payload}
     default:
       return state
     }
@@ -38,13 +42,30 @@ export const getCharacters = () => async (dispatch, getState) => {
   })
 }
 
-export const getSearch = (name) => async (dispatch, getState) => {
+export const getSearchName = (name) => async (dispatch, getState) => {
   const res = await getCharactersByName(name)
   dispatch({
     type: GET_CHARACTERS_BY_NAME,
     payload: res.data.results
   })
 }
+
+export const getSearchId = (id) => async (dispatch, getState) => {
+  const res = await getCharacterById(id)
+  dispatch({
+    type: GET_CHARACTERS_BY_ID,
+    payload: res.data.results
+  })
+}
+
+export const getFavourites = () => async (dispatch,getState) => {
+  const res = getState().favourite.favourite
+  dispatch({
+    type: GET_FAVOURITES,
+    payload: res
+  })
+}
+
 
 export const loadingState = () => async (dispatch, getState) => {
   const array = []

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./search.scss";
-import { getSearch, loadingState, getCharacters } from '../../redux/card-ducks'
+import { getSearchName , loadingState, getCharacters } from '../../redux/card-ducks'
 import {useDispatch} from 'react-redux'
 
 function Search() {
@@ -21,7 +21,7 @@ function Search() {
     const timeOutId = setTimeout(() => {
       if (searchTerm !== "") {
         dispatch(loadingState())
-        dispatch(getSearch(searchTerm))
+        dispatch(getSearchName(searchTerm))
       } else {
         dispatch(getCharacters())
       }

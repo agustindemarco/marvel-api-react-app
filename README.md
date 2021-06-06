@@ -6,9 +6,9 @@ This is a test project for Lenio BootCamp
 
 [✅] - Display Random Characters with name and splasher
 
-[✅ ] - You can search from names of character and show all the posibilities of character searched
+[✅] - You can search from names of character and show all the posibilities of character searched
 
-[ ] - You can sava your favourites characters
+[✅] - You can save your favourites characters
 
 [ ] - When you click one Character, show pop-up for all of comics from the character selected
 
