@@ -2,7 +2,7 @@ const BASE_URL = "http://gateway.marvel.com/v1/public";
 const PUBLIC_KEY = "93778d90c5e0b16c0120e6614a6804ef";
 const authParams = `apikey=${PUBLIC_KEY}`;
 
-function getRandomInt(min, max) {
+export function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 

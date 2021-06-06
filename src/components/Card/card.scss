@@ -19,6 +19,15 @@ article {
     position: relative;
     z-index: 99;
   }
+  .favIcon {
+    display: block;
+    position: absolute;
+    font-size: 20px;
+    top: 3%;
+    z-index: 99;
+    left: 85%;
+    color: white;
+  }
   .char-name {
     font-weight: 700;
     font-size: 0.9rem;

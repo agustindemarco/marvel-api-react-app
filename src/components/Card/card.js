@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./card.scss";
+import { addFavourite } from '../../redux/favourite-ducks'
+import {useDispatch} from 'react-redux'
 
 const propTypes = {
   id: PropTypes.number,
@@ -8,7 +10,10 @@ const propTypes = {
   img: PropTypes.object,
 };
 
-var Card = ({ name, img, id }) => {
+const Card = ({ name, img, character }) => {
+
+  const dispatch = useDispatch()
+
   return (
     <>
       <article>
@@ -19,6 +24,9 @@ var Card = ({ name, img, id }) => {
           <a href="/" className="character">
             {" "}
           </a>
+          <div onClick={() => {dispatch(addFavourite(character))}} className="favIcon">
+            <i  className="icon-star-empty"></i>
+          </div>
           <p className="char-name">{name}</p>
         </div>
       </article>
