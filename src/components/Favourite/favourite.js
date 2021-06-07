@@ -1,31 +1,35 @@
-import React, {useEffect} from "react";
+import React, {useState} from "react";
 import "./favourite.scss";
-import { getFavourites } from '../../redux/card-ducks'
-import {useDispatch, useSelector} from 'react-redux'
+import { getFavourites , getCharacters } from '../../redux/card-ducks'
+import {useDispatch} from 'react-redux'
 
 
 function Favourite() {
 
+  const [star, setStar] = useState("icon-star-empty");
+  const [enter, setEnter] = useState(false);
+
   const dispatch = useDispatch()
-  var fav = useSelector(store => store.favourite.array)
 
-
-  const getFav = () => {
-    dispatch(getFavourites())
-  }
-
-  useEffect(() => {
-    if (fav!==undefined){
-      console.log(fav);
-    }
-  },[fav]);
-  
 
   return (
     <>
-    <div onClick={() => getFav()}>
-      <i className="icon-star-empty head"></i>
-    </div>
+    <div
+            onClick={() => {
+              if (!enter) {
+                setEnter(true)
+                setStar("head icon-star")
+                dispatch(getFavourites())
+              } else {
+                dispatch(getCharacters())
+                setStar("head icon-star-empty")
+                setEnter(false)
+              }
+            }}
+            className="favIcon"
+          >
+            <i className={star}></i>
+          </div>
     </>
   );
 }
