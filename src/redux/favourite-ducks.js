@@ -1,38 +1,28 @@
 // constantes
 const dataInicial = {
-  favourite : []
+  array : []
 }
 
 
 // types
 const ADD_FAVOURITE = 'ADD_FAVOURITE'
 const REMOVE_FAVOURITE = 'REMOVE_FAVOURITE'
-const GET_FAVOURITE = 'GET_FAVOURITE'
 
 // reducer
 export default function favouriteReducer (state = dataInicial, action) {
   switch(action.type){
     case ADD_FAVOURITE:
-      return {...state, favourite: action.payload}
+      return {...state, array: action.payload}
     case REMOVE_FAVOURITE:
-      return {...state, favourite: action.payload}
-    case GET_FAVOURITE:
-      return {...state}
+      return {...state, array: action.payload}
     default:
       return state
     }
 }
 
-export const getFavourite = () => async (dispatch,getState) => {
-  dispatch({
-    type: GET_FAVOURITE,
-  })
-}
-
-export const addFavourite = (id) => async (dispatch, getState) => {
-  const fav = getState().favourite.favourite
-  fav.push(id)
-  console.log(fav)
+export const addFavourite = (character) => async (dispatch, getState) => {
+  const fav = getState().favourite.array
+  fav.push(character)
   dispatch({
     type: ADD_FAVOURITE,
     payload: fav
@@ -40,10 +30,19 @@ export const addFavourite = (id) => async (dispatch, getState) => {
 }
 
 export const removeFavourite = (id) => async (dispatch, getState) => {
-  const fav = getState().favourite.favourite
-  console.log(fav.filter(id))
+  const fav = getState().favourite.array
+  delFav(fav,id)
   dispatch({
     type: REMOVE_FAVOURITE,
     payload: fav
   })
+}
+
+function delFav(fav,id) {
+  for(var i = 0; i < fav.length; i++) {
+    if(fav[i].id === id) {
+        fav.splice(i, 1);
+        break;
+    }
+  }
 }

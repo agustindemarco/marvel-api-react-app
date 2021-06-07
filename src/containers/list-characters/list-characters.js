@@ -24,7 +24,7 @@ function ListCharacters() {
           <div>LOADING</div>
         ) :  (characters.lenght===0) ? <div>No results</div> : (
           characters.map((char, i) => (
-            <Card key={i} name={char.name} img={char.thumbnail} character={char} />
+            <Card key={i} name={char.name} img={char.thumbnail} character={char} id={char.id} />
           ))
         ) }
       </Section>

@@ -58,8 +58,8 @@ export const getSearchId = (id) => async (dispatch, getState) => {
   })
 }
 
-export const getFavourites = () => async (dispatch,getState) => {
-  const res = getState().favourite.favourite
+export const getFavourites = () =>(dispatch,getState) => {
+  const res = getState().favourite.array
   dispatch({
     type: GET_FAVOURITES,
     payload: res
