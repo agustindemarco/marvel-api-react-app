@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import "./card.scss";
 import { addFavourite, removeFavourite } from "../../redux/favourite-ducks";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 
 const propTypes = {
   id: PropTypes.number,
@@ -37,8 +39,9 @@ const Card = ({ name, img, character, id }) => {
           className="image"
           style={{ backgroundImage: `url(${img.path}.${img.extension})` }}
         >
-          <div onClick={() => {}} className="character">
-          </div>
+         
+            <Link to={`/comics/${id}`} className='character'></Link>
+       
           <div
             onClick={() => {
               if (!found) {
