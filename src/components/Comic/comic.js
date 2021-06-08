@@ -19,15 +19,15 @@ const Comic = ({ title, img, id, description }) => {
             alt="comic-img"
             className="comicImage"
           />
-        </div>  
-          <p className="title">{title}</p>
-          <div className="description">
-            <p>{description}</p>
-          </div>
+        </div>
+        <p className="title">{title}</p>
+        <div className="description">
+          <p>{description}</p>
+        </div>
       </div>
     </>
   );
 };
 
 Comic.propTypes = propTypes;
-export default Comic
+export default Comic;

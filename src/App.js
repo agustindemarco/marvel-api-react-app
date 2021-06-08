@@ -25,6 +25,9 @@ function App() {
             <Route path="/comics/:id">
               <Comics/>
             </Route>
+            <Route path="/comic/:id">
+              <Comics/>
+            </Route>
           </Switch>
         
       </Provider>

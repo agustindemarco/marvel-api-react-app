@@ -5,7 +5,6 @@ import { addFavourite, removeFavourite } from "../../redux/favourite-ducks";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-
 const propTypes = {
   id: PropTypes.number,
   name: PropTypes.string,
@@ -29,7 +28,7 @@ const Card = ({ name, img, character, id }) => {
   };
 
   useEffect(() => {
-    changeIcon()
+    changeIcon();
   });
 
   return (
@@ -39,17 +38,16 @@ const Card = ({ name, img, character, id }) => {
           className="image"
           style={{ backgroundImage: `url(${img.path}.${img.extension})` }}
         >
-         
-            <Link to={`/comics/${id}`} className='character'></Link>
-       
+          <Link to={`/comics/${id}`} className="character"></Link>
+
           <div
             onClick={() => {
               if (!found) {
-                setStar("icon-star")
+                setStar("icon-star");
                 dispatch(addFavourite(character));
               } else {
-                setStar("icon-star-empty")
-                dispatch(removeFavourite(id))
+                setStar("icon-star-empty");
+                dispatch(removeFavourite(id));
               }
             }}
             className="favIcon"

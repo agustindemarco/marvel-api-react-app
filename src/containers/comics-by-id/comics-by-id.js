@@ -9,11 +9,11 @@ import { Link } from "react-router-dom";
 function Comics() {
   const { id } = useParams();
   const [comicsColection, setComics] = useState([]);
-  const [loading, setLoading]= useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getComicsById(id).then((response) => {
-      setComics(response.data)
+      setComics(response.data);
       setLoading(false);
     });
   }, [id]);
@@ -28,8 +28,10 @@ function Comics() {
           </Link>
         </div>
         <Section className="scroll">
-          {(loading) ? <p className='center'>LOADING</p> : comicsColection.length === 0 ? (
-            <p className='center'>NO RESULTS</p>
+          {loading ? (
+            <p className="center">LOADING</p>
+          ) : comicsColection.length === 0 ? (
+            <p className="center">NO RESULTS</p>
           ) : (
             comicsColection.map((comic, i) => (
               <Comic
