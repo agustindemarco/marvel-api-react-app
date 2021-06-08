@@ -9,24 +9,21 @@ const propTypes = {
   img: PropTypes.object,
 };
 
-var Comic = ({ title, img, id, description }) => {
+const Comic = ({ title, img, id, description }) => {
   return (
     <>
       <div className="box">
-        <a href={`comic/${id}`} className="comic">
+        <div className="space flex">
           <img
             src={`${img.path}.${img.extension}`}
             alt="comic-img"
             className="comicImage"
           />
-          <p className="title">{title}</p>
-          <a href="/fav" className="favIcon">
-            <i className="icon-star-empty"></i>
-          </a>
-          <div className="description">
-            <p>{description}</p>
-          </div>
-        </a>
+        </div>
+        <p className="title">{title}</p>
+        <div className="description">
+          <p>{description}</p>
+        </div>
       </div>
     </>
   );
