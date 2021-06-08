@@ -10,7 +10,7 @@ This is a test project for Lenio BootCamp
 
 [✅] - You can save or remove (if exists) your favourites characters
 
-[ ] - When you click one Character, show pop-up for all of comics from the character selected
+[✅] - When you click one Character, show pop-up for all of comics from the character selected
 
 [ ] - When you click one Comic sends you to new page and show some of things from the comic selected
 
