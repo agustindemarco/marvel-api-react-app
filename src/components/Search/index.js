@@ -1,32 +1,29 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./search.scss";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router";
+import "./style.scss";
 import {
   getSearchName,
   loadingState,
-  getCharacters,
 } from "../../redux/card-ducks";
 import { useDispatch } from "react-redux";
 
 function Search() {
-  const dispatch = useDispatch();
 
-  const [searchTerm, setSearchTerm] = useState("");
-  const firstUpdate = useRef(true);
+  let query = new URLSearchParams(useLocation().search)
+  const character = query.get("character")
+
+  const dispatch = useDispatch();
+  const [searchTerm, setSearchTerm] = useState(character || "");
+
   const WAIT_INTERVAL = 1000;
 
   const handleChange = (e) => setSearchTerm(e.target.value);
 
   useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
-      return;
-    }
     const timeOutId = setTimeout(() => {
       if (searchTerm !== "") {
         dispatch(loadingState());
         dispatch(getSearchName(searchTerm));
-      } else {
-        dispatch(getCharacters());
       }
     }, WAIT_INTERVAL);
     return () => clearTimeout(timeOutId);
@@ -41,7 +38,7 @@ function Search() {
         name="Nombre"
         value={searchTerm}
         onChange={handleChange}
-        placeholder="Buscar"
+        placeholder="Search"
       />
     </>
   );

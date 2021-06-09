@@ -1,6 +1,7 @@
+
 // constantes
 const dataInicial = {
-  array: [],
+  array: JSON.parse(localStorage.getItem('my-favourites')) || [],
 };
 
 // types

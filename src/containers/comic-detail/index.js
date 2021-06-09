@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import './style.scss'
 import { getComicById } from '../../utils/fetch';
 import { useParams } from 'react-router';
+import './style.scss'
 
 const ComicDetail = () => {
 
@@ -11,31 +11,49 @@ const ComicDetail = () => {
 
   useEffect(() => {
     getComicById(id).then((response) => {
-      setComic(response.data);
+      setComic(response.data[0]);
       setLoading(false);
     });
   }, [id]);
 
-
+if (!loading) {
+    const roles = ['artist','writer','penciler']
+    const creators = comic.creators.items.filter(creator => roles.includes(creator.role))
+    var writer = ''
+    var artist = ''
+    var penciler = ''
+    for (let i=0 ; i<creators.length; i++){
+      if (creators[i].role === 'writer'){
+        writer += " -"+creators[i].name
+      }
+      if (creators[i].role === 'artist'){
+        artist += " -"+creators[i].name
+      }
+      if (creators[i].role === 'penciler'){
+        penciler += " -"+ creators[i].name
+      }
+    }
+}
+  
 
   return (
     <>
-      <div className="comic">
+      <div className="comic-det">
         {loading ? <div>LOADING</div> : <>
         <div className="comic-image">
           <img
-            src={`${comic[0].thumbnail.path}.${comic[0].thumbnail.extension}`}
+            src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
             alt="comic-img"
             className="comicImage"
           />
         </div>
         <div className='comic-details'>
-          <h2>{comic[0].title}</h2>
+          <h2>{comic.title}</h2>
           {/* <date>{comic[0].dates.date}</date> */}
-          <p>Writer</p>
-          <p>Penciler</p>
-          <p>Artist</p>
-          <p>{comic[0].description}</p>
+          <p>Writer: {writer}</p>
+          {penciler==='' ? <p>No penciler</p> : <p>Penciler: {penciler}</p> }
+          {artist==='' ? <p>No Artist</p> : <p>Artist: {artist}</p> }
+          <p>{comic.description}</p>
         </div> </>}
       </div>
     </>

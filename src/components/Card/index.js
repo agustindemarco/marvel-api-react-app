@@ -17,7 +17,7 @@ const Card = ({ name, img, character, id }) => {
 
   const favourite = useSelector((store) => store.favourite.array);
   const dispatch = useDispatch();
-  
+
   const changeIcon = () => {
     if (favourite.find((element) => element === character) === undefined) {
       setFound(false);
@@ -40,7 +40,6 @@ const Card = ({ name, img, character, id }) => {
           style={{ backgroundImage: `url(${img.path}.${img.extension})` }}
         >
           <Link to={`/home/comics/${id}`} className="character"></Link>
-
           <div
             onClick={() => {
               if (!found) {
@@ -50,6 +49,7 @@ const Card = ({ name, img, character, id }) => {
                 setStar("icon-star-empty");
                 dispatch(removeFavourite(id));
               }
+              localStorage.setItem("my-favourites", JSON.stringify(favourite));
             }}
             className="favIcon"
           >
