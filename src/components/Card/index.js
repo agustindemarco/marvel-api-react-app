@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import "./card.scss";
+import "./style.scss";
 import { addFavourite, removeFavourite } from "../../redux/favourite-ducks";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -39,7 +39,7 @@ const Card = ({ name, img, character, id }) => {
           className="image"
           style={{ backgroundImage: `url(${img.path}.${img.extension})` }}
         >
-          <Link to={`/comics/${id}`} className="character"></Link>
+          <Link to={`/home/comics/${id}`} className="character"></Link>
 
           <div
             onClick={() => {

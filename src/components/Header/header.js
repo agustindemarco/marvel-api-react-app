@@ -13,7 +13,7 @@ function Header() {
     <>
       <nav>
         <div className="col-1">
-          <Link to='/'
+          <Link to='/home'
             className="block"
             onClick={() => {
               dispatch(getCharacters());

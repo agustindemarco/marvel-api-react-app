@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "../../components/Card/card";
+import Card from "../../components/Card";
 import Section from "../../components/Section/section";
 import { getCharacters } from "../../redux/card-ducks";
 import { useDispatch, useSelector } from "react-redux";
