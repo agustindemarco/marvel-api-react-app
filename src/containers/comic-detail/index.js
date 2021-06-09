@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import Section from '../Section/section';
 import './style.scss'
 import { getComicById } from '../../utils/fetch';
 import { useParams } from 'react-router';
@@ -21,7 +20,7 @@ const ComicDetail = () => {
 
   return (
     <>
-      <Section className="flex fullbody absolute">
+      <div className="comic">
         {loading ? <div>LOADING</div> : <>
         <div className="comic-image">
           <img
@@ -32,14 +31,13 @@ const ComicDetail = () => {
         </div>
         <div className='comic-details'>
           <h2>{comic[0].title}</h2>
-          <date>{comic[0].dates.date}</date>
+          {/* <date>{comic[0].dates.date}</date> */}
           <p>Writer</p>
           <p>Penciler</p>
           <p>Artist</p>
           <p>{comic[0].description}</p>
         </div> </>}
-        
-      </Section>
+      </div>
     </>
   );
 };
