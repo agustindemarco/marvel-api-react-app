@@ -8,6 +8,7 @@ import {
 const dataInicial = {
   array: [],
   offset: 0,
+  length: 0,
 };
 
 // types
@@ -21,7 +22,7 @@ const LOADING_STATE = "LOADING_STATE";
 export default function cardReducer(state = dataInicial, action) {
   switch (action.type) {
     case GET_CHARACTERS:
-      return { ...state, array: action.payload };
+      return { ...state, array: action.payload.data.results, length:action.payload.data.count};
     case GET_CHARACTERS_BY_NAME:
       return { ...state, array: action.payload };
     case GET_CHARACTERS_BY_ID:
@@ -36,23 +37,24 @@ export default function cardReducer(state = dataInicial, action) {
 }
 
 // ACCIONES
-export const getCharacters = () => async (dispatch, getState) => {
+export const getCharacters = () => async (dispatch) => {
   const res = await getRandomCharacters();
   dispatch({
     type: GET_CHARACTERS,
-    payload: res.data.results,
+    payload: res,
   });
 };
 
-export const getSearchName = (name) => async (dispatch, getState) => {
-  const res = await getCharactersByName(name);
+export const getSearchName = (name) => async (dispatch) => {
+  var res = []
+  res = await getCharactersByName(name);
   dispatch({
     type: GET_CHARACTERS_BY_NAME,
     payload: res.data.results,
   });
 };
 
-export const getSearchId = (id) => async (dispatch, getState) => {
+export const getSearchId = (id) => async (dispatch) => {
   const res = await getCharacterById(id);
   dispatch({
     type: GET_CHARACTERS_BY_ID,
@@ -68,7 +70,7 @@ export const getFavourites = () => (dispatch, getState) => {
   });
 };
 
-export const loadingState = () => async (dispatch, getState) => {
+export const loadingState = () => async (dispatch) => {
   const array = [];
   dispatch({
     type: LOADING_STATE,

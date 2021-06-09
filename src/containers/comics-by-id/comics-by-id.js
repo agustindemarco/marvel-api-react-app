@@ -6,7 +6,10 @@ import { useParams } from "react-router-dom";
 import "./comics-by-id.scss";
 import { Link } from "react-router-dom";
 
+
 function Comics() {
+
+
   const { id } = useParams();
   const [comicsColection, setComics] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,6 +38,7 @@ function Comics() {
           ) : (
             comicsColection.map((comic, i) => (
               <Comic
+                comic={comicsColection}
                 key={i}
                 title={comic.title}
                 img={comic.thumbnail}
