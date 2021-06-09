@@ -12,7 +12,7 @@ import {
   Redirect
 } from "react-router-dom";
 
-
+// http://localhost:3000/comic/15879
 function App() {
   const store = generateStore()
   return (
