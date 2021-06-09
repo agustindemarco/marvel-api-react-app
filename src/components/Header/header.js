@@ -4,6 +4,7 @@ import Favourite from "../Favourite/favourite";
 import "./header.scss";
 import { getCharacters } from "../../redux/card-ducks";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Header() {
   const dispatch = useDispatch();
@@ -12,14 +13,14 @@ function Header() {
     <>
       <nav>
         <div className="col-1">
-          <div
+          <Link to='/'
             className="block"
             onClick={() => {
               dispatch(getCharacters());
             }}
           >
             <img className="logo" src="Marvel_Logo.svg" alt="LOGO" />
-          </div>
+          </Link>
         </div>
         <div className="col-2">
           <Search />
