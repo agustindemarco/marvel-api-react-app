@@ -16,11 +16,11 @@ const Pagination = ({ cardsPerPage, totalCards, paginate }) => {
   }, [totalCards, cardsPerPage]);
 
   return (
-    <div>
+    <div className="bottom">
       <ul className="pagination">
         {pages.length === 1 ? <></> : pages.map((number) => (
           <li key={number} className="page-item">
-            <Link onClick={() => paginate(number)} to="/home" className="page-link">
+            <Link onClick={() => paginate(number)} to={`/home/favourite/${number}`} className="page-link">
               {number}
             </Link>
           </li>

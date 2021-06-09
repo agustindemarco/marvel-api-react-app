@@ -2,23 +2,14 @@ import React from "react";
 import Search from "../Search";
 import Favourite from "../Favourite";
 import "./style.scss";
-import { getCharacters } from "../../redux/card-ducks";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Header() {
-  const dispatch = useDispatch();
-
   return (
     <>
       <nav>
         <div className="col-1">
-          <Link to='/home'
-            className="block"
-            onClick={() => {
-              dispatch(getCharacters());
-            }}
-          >
+          <Link to="/home" className="block">
             <img className="logo" src="Marvel_Logo.svg" alt="LOGO" />
           </Link>
         </div>

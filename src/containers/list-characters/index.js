@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 function ListCharacters() {
   const dispatch = useDispatch();
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage] = useState(8);
   const characters = useSelector((store) => store.characters.array);
@@ -18,9 +18,9 @@ function ListCharacters() {
   const paginate = (pages) => setCurrentPage(pages);
 
   useEffect(() => {
-      setLoading(true)
-      dispatch(getCharacters()).then(setLoading(false));
-  }, [dispatch, loading]);
+      dispatch(getCharacters()).then(() => {
+        setLoading(false)});
+  },[dispatch]);
 
   return (
     <div>

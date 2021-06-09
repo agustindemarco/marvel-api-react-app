@@ -16,9 +16,9 @@ function App() {
   const store = generateStore();
   return (
     <Router>
+      <Redirect from="/" to="/home" />
       <Provider store={store}>
         <Header />
-        <Redirect from="/" to="/home" />
         <Switch>
           <Route path="/home" strict>
             <ListCharacters />
