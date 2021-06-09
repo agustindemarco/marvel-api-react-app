@@ -17,6 +17,7 @@ const Card = ({ name, img, character, id }) => {
 
   const favourite = useSelector((store) => store.favourite.array);
   const dispatch = useDispatch();
+  
   const changeIcon = () => {
     if (favourite.find((element) => element === character) === undefined) {
       setFound(false);

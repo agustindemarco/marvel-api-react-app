@@ -3,7 +3,7 @@ import ListCharacters from './containers/list-characters/list-characters';
 import Header from './components/Header/header';
 import Search from './components/Search/search';
 import Comics from './containers/comics-by-id/comics-by-id';
-import ComicDetail from './components/Comic-detail'
+import ComicDetail from './components/Comic-detail';
 import { Provider } from 'react-redux'
 import generateStore from "./redux/store";
 import {
@@ -21,13 +21,19 @@ function App() {
         <Header>
           <Search/>
         </Header>
-        <ListCharacters/>
           <Switch>
-            <Route path="/comics/:id">
+            <Route path="/comics/:id" exact>
               <Comics/>
             </Route>
-            <Route path="/comic/:id">
+          </Switch>
+          <Switch>
+            <Route path="/comic/:id" exact>
               <ComicDetail/>
+            </Route>
+          </Switch>
+          <Switch>
+            <Route path="/">
+              <ListCharacters/>
             </Route>
           </Switch>
         
