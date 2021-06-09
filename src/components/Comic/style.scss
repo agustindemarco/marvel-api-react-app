@@ -1,0 +1,38 @@
+.comic {
+  display: flex;
+  margin: 10px;
+  max-height: 140px;
+  color: black;
+  .img-comic {
+    display: flex;
+    width: 25%;
+    min-height: 120px;
+    margin: 5px;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+  }
+  
+  .desc-comic {
+    width: 75%;
+    .title {
+      margin: 0px;
+      padding: 5px;
+    }
+    .description {
+      margin: auto;
+      padding: 4px;
+      height: 75%;
+      overflow-y: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.link {
+  margin: 10px;
+  text-decoration: none;
+}

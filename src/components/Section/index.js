@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./section.scss";
+import "./style.scss";
 
 const propTypes = {
   classNames: PropTypes.string,

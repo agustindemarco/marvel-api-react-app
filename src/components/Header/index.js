@@ -1,7 +1,7 @@
 import React from "react";
-import Search from "../Search/search";
-import Favourite from "../Favourite/favourite";
-import "./header.scss";
+import Search from "../Search";
+import Favourite from "../Favourite";
+import "./style.scss";
 import { getCharacters } from "../../redux/card-ducks";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";

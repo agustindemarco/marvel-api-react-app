@@ -1,0 +1,15 @@
+.favIcon {
+  color: gray;
+  font-size: 20px;
+  .link {
+    text-decoration: none;
+    color: grey;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.icon-star {
+  font-size: 20px;
+}
