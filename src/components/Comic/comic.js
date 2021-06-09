@@ -14,7 +14,7 @@ const Comic = ({ title, img, id, description, comic }) => {
 
   return (
     <>
-      <Link to={`/comic/${id}` }>
+      <Link to={`/comic/${id}`}>
         <div className="box">
           <div className="space flex">
             <img

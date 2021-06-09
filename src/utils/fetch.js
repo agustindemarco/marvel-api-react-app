@@ -48,3 +48,11 @@ export function getComicsById(id) {
     };
   });
 }
+
+export function getComicById(id) {
+  return getData(`comics/${id}`, authParams).then((response) => {
+    return {
+      data: response.data.results,
+    };
+  });
+}
