@@ -5,21 +5,15 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Favourite() {
-
   const dispatch = useDispatch();
 
   return (
     <>
-        <div
-          onClick={() => 
-            dispatch(getFavourites())
-          }
-          className="favIcon"
-        >
-      <Link to="/home/favorites" className="link">
+      <div onClick={() => dispatch(getFavourites())} className="favIcon">
+        <Link to="/home/favorites" className="link">
           <i className="icon-star"></i>
-      </Link>
-        </div>
+        </Link>
+      </div>
     </>
   );
 }

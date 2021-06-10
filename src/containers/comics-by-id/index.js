@@ -6,16 +6,14 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-
 function Comics() {
- 
   const { id } = useParams();
   const [comicsColection, setComics] = useState([]);
   const [name, setName] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getCharacterById(id).then((res) => setName(res.data.results[0].name))
+    getCharacterById(id).then((res) => setName(res.data.results[0].name));
     getComicsById(id).then((response) => {
       setComics(response.data);
       setLoading(false);
@@ -24,7 +22,7 @@ function Comics() {
 
   return (
     <div className="grid-container">
-      <Section className="absolute">
+      <Section className="modal">
         <div className="head">
           <h1>{name}</h1>
           <Link to="/home">

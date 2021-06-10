@@ -42,7 +42,10 @@ export function getCharactersByName(name) {
 }
 
 export function getComicsById(id) {
-  return getData(`characters/${id}/comics`, `orderBy=-onsaleDate&${authParams}`).then((response) => {
+  return getData(
+    `characters/${id}/comics`,
+    `orderBy=-onsaleDate&${authParams}`
+  ).then((response) => {
     return {
       data: response.data.results,
     };

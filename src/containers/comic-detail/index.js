@@ -39,7 +39,7 @@ const ComicDetail = () => {
   return (
     <>
       <div className="comic-det">
-        {loading ? ( 
+        {loading ? (
           <div>LOADING</div>
         ) : (
           <>
@@ -59,8 +59,8 @@ const ComicDetail = () => {
                 <p>Penciler: {penciler}</p>
               )}
               {artist === "" ? <p>No Artist</p> : <p>Artist: {artist}</p>}
-              <p>{comic.description}</p>
-            </div>{" "}
+              <div>{comic.description}</div>
+            </div>
           </>
         )}
       </div>

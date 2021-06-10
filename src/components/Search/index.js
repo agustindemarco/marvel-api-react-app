@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import "./style.scss";
-import {
-  getSearchName,
-  loadingState,
-} from "../../redux/card-ducks";
+import { getSearchName, loadingState } from "../../redux/card-ducks";
 import { useDispatch } from "react-redux";
 
 function Search() {
-
-  let query = new URLSearchParams(useLocation().search)
-  const character = query.get("character")
+  let query = new URLSearchParams(useLocation().search);
+  const character = query.get("character");
 
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState(character || "");

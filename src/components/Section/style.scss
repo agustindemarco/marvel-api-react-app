@@ -9,37 +9,30 @@
   overflow-y: scroll;
 }
 
-.absolute {
+.modal {
   width: 550px;
   height: 400px;
-  position: absolute;
   background-color: white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 5%;
+
+  @media (max-width: 768px) {
+    width: 400px;
+  }
 }
 
 .grid-container {
-
-  width: 100%;
-  min-height: 100%;
-  position: absolute;
+  min-height: 101%;
+  min-width: 1024px;
+  width: 101%;
+  height: auto;
+  position: fixed;
   z-index: 150;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.67) repeat scroll 0px 0px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0fr 1fr 0fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    ". . ."
-    ". box ."
-    ". . .";
-}
-
-.box {
-  grid-area: box;
+  background: rgba(0, 0, 0, 0.67) repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

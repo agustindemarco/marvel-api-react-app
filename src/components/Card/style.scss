@@ -2,18 +2,22 @@ article {
   height: 380px;
   width: 256px;
   margin: 20px;
-  
+
+  @media (max-width: 768px) {
+    height: 260px;
+    width: 150px;
   }
-  .image {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    border-radius: 10px;
-    background-position: center;
-    background-size:cover;
-    background-repeat: no-repeat;
-    -webkit-box-shadow: inset 0px 0px 90px 18px rgba(0, 0, 0, 0.62);
-    box-shadow: inset 0px 0px 90px 18px rgba(0, 0, 0, 0.62);
+}
+.image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: inset 0px 0px 90px 18px rgba(0, 0, 0, 0.62);
+  box-shadow: inset 0px 0px 90px 18px rgba(0, 0, 0, 0.62);
 
   .character {
     width: 100%;
@@ -30,6 +34,10 @@ article {
     z-index: 99;
     left: 85%;
     color: white;
+
+    @media (max-width: 768px) {
+      left: 80%;
+    }
     &:hover {
       color: yellow;
     }

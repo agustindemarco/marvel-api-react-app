@@ -4,9 +4,11 @@ This is a test project for Lenio BootCamp
 
 ## Features:
 
-[✅] - Display Random Characters with name and splasher
+[✅] - Display Random Characters with name and respective image
 
 [✅] - You can search from names of character and show all the posibilities of character searched
+
+[✅] - You can search character names with URI media querys by "character" parameter
 
 [✅] - You can save or remove (if exists) your favourites characters
 

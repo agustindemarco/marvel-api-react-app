@@ -1,14 +1,19 @@
 .comic-det {
   display: flex;
-  justify-content: space-around;
-  
-}
-
-.comic-image {
-  width: 50%;
-  height: 100%;
-}
-
-.comic-details {
-  width: 50%;
+  justify-content: center;
+  flex-wrap: wrap;
+  .comic-image {
+    margin: 10px;
+    height: 100%;
+    .comicImage {
+      width: 100%;
+    }
+  }
+  .comic-details {
+    width: 50%;
+    @media (max-width: 768px) {
+      margin: 15px;
+      width: 100%;
+    }
+  }
 }

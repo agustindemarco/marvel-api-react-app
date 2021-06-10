@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import ListCharacters from "./containers/list-characters";
 import Header from "./components/Header";
 import Comics from "./containers/comics-by-id";
@@ -16,7 +16,7 @@ function App() {
   const store = generateStore();
   return (
     <Router>
-      <Redirect from="/" to="/home" />
+      <Redirect exact from="/" to="/home" />
       <Provider store={store}>
         <Header />
         <Switch>

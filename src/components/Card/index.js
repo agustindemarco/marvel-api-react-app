@@ -9,6 +9,7 @@ const propTypes = {
   id: PropTypes.number,
   name: PropTypes.string,
   img: PropTypes.object,
+  character: PropTypes.object,
 };
 
 const Card = ({ name, img, character, id }) => {

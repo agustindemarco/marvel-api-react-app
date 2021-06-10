@@ -22,7 +22,11 @@ const LOADING_STATE = "LOADING_STATE";
 export default function cardReducer(state = dataInicial, action) {
   switch (action.type) {
     case GET_CHARACTERS:
-      return { ...state, array: action.payload.data.results, length:action.payload.data.count};
+      return {
+        ...state,
+        array: action.payload.data.results,
+        length: action.payload.data.count,
+      };
     case GET_CHARACTERS_BY_NAME:
       return { ...state, array: action.payload };
     case GET_CHARACTERS_BY_ID:
@@ -46,7 +50,7 @@ export const getCharacters = () => async (dispatch) => {
 };
 
 export const getSearchName = (name) => async (dispatch) => {
-  var res = []
+  var res = [];
   res = await getCharactersByName(name);
   dispatch({
     type: GET_CHARACTERS_BY_NAME,
