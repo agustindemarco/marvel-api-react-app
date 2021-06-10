@@ -1,27 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.scss";
-import { getFavourites, getCharacters } from "../../redux/card-ducks";
+import { getFavourites } from "../../redux/card-ducks";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Favourite() {
-  const [enter, setEnter] = useState(true);
+  
   const dispatch = useDispatch();
-
-  const func = () => {
-    if (enter) {
-      setEnter(!enter)
-      return getFavourites()
-    } else {
-      setEnter(!enter)
-      return getCharacters()
-    }
-  }
 
   return (
     <>
-      <div onClick={() => dispatch(func())} className="favIcon">
-        <Link to="/home/favorites">
+      <div onClick={() => dispatch(getFavourites())} className="favIcon">
+        <Link to={`/home`}>
           <i className="icon-star"></i>
         </Link>
       </div>

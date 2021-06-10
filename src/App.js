@@ -16,7 +16,6 @@ function App() {
   const store = generateStore();
   return (
     <Router>
-      <Redirect exact from="/" to="/home" />
       <Provider store={store}>
         <Header />
         <Switch>
@@ -24,11 +23,10 @@ function App() {
             <ListCharacters />
             <Route path="/home/comics/:id" component={Comics} />
           </Route>
-        </Switch>
-        <Switch>
-          <Route strict path="/comic/:id" exact>
+          <Route path="/comic/:id" exact>
             <ComicDetail />
           </Route>
+          <Redirect to="/home" />
         </Switch>
       </Provider>
     </Router>

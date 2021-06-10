@@ -30,7 +30,7 @@ const Pagination = ({ cardsPerPage, totalCards, paginate }) => {
             <li key={number} className="page-item">
               <Link
                 onClick={() => paginate(number)}
-                to={`/home/favourite/${number}`}
+                to="/home"
                 className="page-link"
               >
                 {number}
