@@ -25,6 +25,12 @@ article {
     display: block;
     position: relative;
     z-index: 98;
+    transition: 0.5s;
+    border-radius: 10px;
+    &:hover {
+      -webkit-box-shadow: inset 0px 0px 90px 18px rgba(0, 0, 0, 0.959);
+      box-shadow: inset 0px 0px 90px 18px rgba(0, 0, 0, 0.959);
+    }
   }
   .favIcon {
     display: block;

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import "./style.scss";
-import { getCharacters, getSearchName, loadingState } from "../../redux/card-ducks";
+import {
+  getSearchName,
+  loadingState,
+} from "../../redux/card-ducks";
 import { useDispatch } from "react-redux";
 
 function Search() {
@@ -21,9 +24,6 @@ function Search() {
         dispatch(loadingState());
         dispatch(getSearchName(searchTerm));
       }
-      if (searchTerm === "") {
-        dispatch(getCharacters())
-      }
     }, WAIT_INTERVAL);
     return () => clearTimeout(timeOutId);
   }, [dispatch, searchTerm]);
@@ -32,7 +32,7 @@ function Search() {
     <>
       <i className="icon-search"></i>
       <input
-        className="searchChar"
+        className="search"
         type="text"
         name="Nombre"
         value={searchTerm}

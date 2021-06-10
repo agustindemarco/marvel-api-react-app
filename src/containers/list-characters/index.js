@@ -5,12 +5,13 @@ import Pagination from "../../components/Pagination";
 import { getCharacters } from "../../redux/card-ducks";
 import { useDispatch, useSelector } from "react-redux";
 
+const cardsPerPage = 8;
+
 function ListCharacters() {
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardsPerPage] = useState(8);
   const characters = useSelector((store) => store.characters.array);
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirtCard = indexOfLastCard - cardsPerPage;
@@ -22,6 +23,10 @@ function ListCharacters() {
       setLoading(false);
     });
   }, [dispatch]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [characters]);
 
   return (
     <div>
