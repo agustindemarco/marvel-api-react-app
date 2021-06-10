@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import "./style.scss";
-import { getSearchName, loadingState } from "../../redux/card-ducks";
+import { getCharacters, getSearchName, loadingState } from "../../redux/card-ducks";
 import { useDispatch } from "react-redux";
 
 function Search() {
@@ -17,9 +17,12 @@ function Search() {
 
   useEffect(() => {
     const timeOutId = setTimeout(() => {
-      if (searchTerm !== "") {
+      if (searchTerm !== "" && searchTerm.length <= 50) {
         dispatch(loadingState());
         dispatch(getSearchName(searchTerm));
+      }
+      if (searchTerm === "") {
+        dispatch(getCharacters())
       }
     }, WAIT_INTERVAL);
     return () => clearTimeout(timeOutId);
@@ -35,6 +38,7 @@ function Search() {
         value={searchTerm}
         onChange={handleChange}
         placeholder="Search"
+        maxLength="50"
       />
     </>
   );
