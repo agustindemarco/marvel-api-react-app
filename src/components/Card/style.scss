@@ -53,5 +53,8 @@ article {
     top: 85%;
     left: 5%;
     color: aliceblue;
+    @media (max-width: 768px) {
+      top: 78%;
+    }
   }
 }
