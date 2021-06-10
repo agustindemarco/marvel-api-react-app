@@ -10,7 +10,7 @@
     margin: 5px;
     justify-content: center;
     position: relative;
-    border-radius: 10px;
+    border-radius: 5px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@
 .link {
   margin: 10px;
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 5px;
   &:hover {
     background: rgba(128, 128, 128, 0.281);
   }

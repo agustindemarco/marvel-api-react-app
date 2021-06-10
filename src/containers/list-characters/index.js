@@ -29,7 +29,7 @@ function ListCharacters() {
   }, [characters]);
 
   return (
-    <div>
+    <>
       <Section className="flex">
         {loading ? (
           <div className="center">LOADING</div>
@@ -52,7 +52,7 @@ function ListCharacters() {
         totalCards={characters.length}
         paginate={paginate}
       />
-    </div>
+    </>
   );
 }
 
