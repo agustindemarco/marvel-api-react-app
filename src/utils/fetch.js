@@ -1,4 +1,4 @@
-const BASE_URL = "http://gateway.marvel.com/v1/public";
+const BASE_URL = "https://gateway.marvel.com/v1/public";
 const authParams = `apikey=${process.env.REACT_APP_API_KEY}`;
 
 export function getRandomInt(min, max) {
