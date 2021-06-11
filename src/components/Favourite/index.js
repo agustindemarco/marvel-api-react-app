@@ -10,8 +10,8 @@ function Favourite() {
 
   return (
     <>
-      <div onClick={() => dispatch(getFavourites())} className="favIcon">
-        <Link to={`/home`}>
+      <div className="favIcon">
+        <Link to="/home" onClick={() => dispatch(getFavourites())}>
           <i className="icon-star"></i>
         </Link>
       </div>

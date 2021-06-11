@@ -19,6 +19,7 @@ function ListCharacters() {
   const paginate = (pages) => setCurrentPage(pages);
 
   useEffect(() => {
+    setLoading(true)
     dispatch(getCharacters()).then(() => {
       setLoading(false);
     });
